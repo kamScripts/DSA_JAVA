@@ -65,14 +65,18 @@ public class Graph {
         int idx = index(x,y);
         int[]adj = new int [4];
         int []weight = weights[idx];
-        if (x > 0 || weights[index(x-1,y)][0] < 9){ //left
-            adj[0] = weights[index(x-1,y)][0];
-        }        
+        if (x > 0) { //left
+            if(weights[index(x-1,y)][0] < 9){
+               adj[0] = weights[index(x-1,y)][0]; 
+            }          
+        }     
         if (x+1 < width || weight[0] < 9) { //right
            adj[1] = weight[0];
         }
-        if (y > 0 || weights[index(x,y-1)][1] < 9) { //up
-            adj[2] = weights[index(x,y-1)][1];
+        if (y > 0 ) { //up
+            if(weights[index(x,y-1)][1] < 9){
+                adj[2] = weights[index(x,y-1)][1];
+            }            
         }
         if(y+1 < height || weight[1] < 9) { //down
             adj[3] = weight[1];
